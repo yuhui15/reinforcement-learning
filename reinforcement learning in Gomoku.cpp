@@ -168,6 +168,7 @@ void dfs2(int round, int position,int flag)
             if (flag == 2)
             {
                 memory_search(round, s, a);
+                cout<<round<<' '<<s<<' '<<a<<' '<<Q[round][s][a]<<endl;
             }
         }
         return;
@@ -190,8 +191,6 @@ int main()
     {
         dfs2(round, 0,1);
         dfs2(round, 0,2);
-        for(int i=0; i<9; i++)
-        cout<<round<<' '<<"112210000"<<' '<<i<<' '<<Q[round]["112210000"][i]<<endl;
     }
     
     return 0;
