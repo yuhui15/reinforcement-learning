@@ -159,16 +159,17 @@ void dfs2(int round, int position,int flag)
                 }
                 else
                 {
-                    if(Q[round - 1][s][a]>=0) P1[round][s][a] = Q[round - 1][s][a]/sum[s];
+                    if(Q[round - 1][s][a]>=0&&sum[s]>0) P1[round][s][a] = Q[round - 1][s][a]/sum[s];
                     else P1[round][s][a] = 0;
-                    if(Q[round - 1][inverse(s)][a]>=0) P2[round][s][a] = Q[round - 1][inverse(s)][a]/sum[s];
+                    if(Q[round - 1][inverse(s)][a]>=0&&sum[s]>0) P2[round][s][a] = Q[round - 1][inverse(s)][a]/sum[s];
                 	else P2[round][s][a] = 0;
 				}	
             }
             if (flag == 2)
             {
                 memory_search(round, s, a);
-                cout<<round<<' '<<s<<' '<<a<<' '<<Q[round][s][a]<<endl;
+                if(round==9)
+                cout<<s<<' '<<a<<' '<<Q[round][s][a]<<endl;
             }
         }
         return;
@@ -184,10 +185,10 @@ void dfs2(int round, int position,int flag)
 int main()
 {
 	freopen("output_data","w",stdout);
-    for (int round = 0; round < 3; round++)
+    for (int round = 0; round < 10; round++)
         dfs(round, 0);
     
-    for (int round = 0; round < 3; round++)
+    for (int round = 0; round < 10; round++)
     {
         dfs2(round, 0,1);
         dfs2(round, 0,2);
