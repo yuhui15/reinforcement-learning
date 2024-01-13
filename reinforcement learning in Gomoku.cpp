@@ -71,7 +71,8 @@ bool check(string S, char flag)
     return 0;
 }
 void memory_search(int round, string S, int A)
-{
+{   
+	if(S[A]!='0') return ;
     if (Q[round][S][A] != -1) return;
     string S1 = S;
     S1[A] = '1';
@@ -167,7 +168,6 @@ void dfs2(int round, int position,int flag)
             if (flag == 2)
             {
                 memory_search(round, s, a);
-                cout << round << ' ' << s << ' ' << a << ' ' << Q[round][s][a] << endl;
             }
         }
         return;
@@ -183,13 +183,16 @@ void dfs2(int round, int position,int flag)
 int main()
 {
 	freopen("output_data","w",stdout);
-    for (int round = 0; round < 10; round++)
+    for (int round = 0; round < 3; round++)
         dfs(round, 0);
     
-    for (int round = 0; round < 10; round++)
+    for (int round = 0; round < 3; round++)
     {
         dfs2(round, 0,1);
         dfs2(round, 0,2);
+        for(int i=0; i<9; i++)
+        cout<<round<<' '<<"112210000"<<' '<<i<<' '<<Q[round]["112210000"][i]<<endl;
     }
+    
     return 0;
 }
