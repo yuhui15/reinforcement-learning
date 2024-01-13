@@ -168,7 +168,7 @@ void dfs2(int round, int position,int flag)
             if (flag == 2)
             {
                 memory_search(round, s, a);
-                if(round==9)
+                if(round==2)
                 cout<<s<<' '<<a<<' '<<Q[round][s][a]<<endl;
             }
         }
@@ -185,10 +185,10 @@ void dfs2(int round, int position,int flag)
 int main()
 {
 	freopen("output_data","w",stdout);
-    for (int round = 0; round < 10; round++)
+    for (int round = 0; round < 3; round++)
         dfs(round, 0);
     
-    for (int round = 0; round < 10; round++)
+    for (int round = 0; round < 3; round++)
     {
         dfs2(round, 0,1);
         dfs2(round, 0,2);
